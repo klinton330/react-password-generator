@@ -1,53 +1,221 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
 
-/* Reset */
+/* Global Reset */
 * {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-/* Page Layout */
+
 body {
-   background-color: #F0F8FF
-}
-.password-generator{
-  max-width: 400px;
-  background-color: #fff;
-  margin: 50px auto;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0eaff, #f4f7ff, #dbeafe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  color: #1e293b;
 }
 
+/* Main Card */
+.password-generator {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 15px 45px rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(13, 119, 219, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.password-generator:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.17);
+}
+
+/* Heading */
 .password-generator h2 {
-  margin-bottom: 20px;
+  margin-bottom: 28px;
   text-align: center;
-  color: #007bff;
-  font-size: 20px;
-  text-transform: uppercase;
+  color: #2563eb;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-.checkbox-group,.input-group,.generate-password{
-margin-bottom: 15px;
+/* Form Groups */
+.checkbox-group,
+.input-group,
+.generate-password {
+  margin-bottom: 18px;
 }
 
-.checkbox-group{
+.checkbox-group {
   display: flex;
   align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #f8faff;
+  border: 1px solid #e5eaf5;
+  border-radius: 10px;
+  transition: background 0.2s ease;
 }
 
-.checkbox-group input{
-  margin-right: 10px;
+.checkbox-group:hover {
+  background: #eff6ff;
 }
 
-.input-group label{
- display: block;
- font-weight: bold;
- margin-bottom: 10px;
+.checkbox-group input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: #2563eb;
+  cursor: pointer;
 }
-input[type="number"]{
+
+.checkbox-group label {
+  font-size: 14px;
+  color: #475569;
+  cursor: pointer;
+}
+
+/* Password Length */
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #334155;
+}
+
+input[type="number"] {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  background: #fff;
+  color: #1e293b;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+/* Generate Button */
+.generate-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.generate-btn:active {
+  transform: translateY(0);
+}
+
+/* Generated Password Field */
+.generate-password {
+  margin-top: 22px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f8fafc;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.generate-password:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+input[type="text"] {
+  min-width: 0;
+  width: 100%;
+  flex: 1;
+  padding: 13px 12px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Copy Button */
+.copy-btn {
+  flex-shrink: 0;
+  border: none;
+  padding: 0 18px;
+  background: #16a34a;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: #15803d;
+}
+
+.copy-btn:active {
+  background: #166534;
+}
+
+/* Keyboard Accessibility */
+button:focus-visible,
+input:focus-visible {
+  outline-offset: 3px;
+}
+
+/* Copyright */
+.copyright {
+    margin-top: 24px;
+    text-align: center;
+    color: #8395a7;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.copyright span {
+    color: #3498db;
+    font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+
+  .password-generator {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .password-generator h2 {
+    font-size: 21px;
+  }
 }
